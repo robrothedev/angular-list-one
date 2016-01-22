@@ -3,22 +3,22 @@
 <head>
 <title>Rob Rothe | AngularJS Sample</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <style>
-body {
-	padding:20px;
-}
-
 form {
-	margin-bottom:20px;
+	margin:20px 0;
 }
 </style>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+<script src="assets/bower_components/angular/angular.min.js"></script>
 <script src="app.js"></script>
 </head>
 <body>
 <div ng-app="app">
+<div style="background:#F76071;padding:10px;text-align:center;">
+	<h4><a href="http://robrothedev.com/#skills" style="color:#fff;">www.robrothedev.com</a></h4>
+</div>
 <div class="container">
+	<h1>Simple Angular List</h1>
 	<div ng-controller="FormCtrl as form_ctrl">
 		<form class="form-inline" ng-submit="form_ctrl.save()">
 			<div class="form-group">
@@ -38,7 +38,10 @@ form {
 				<td>{{m.id}}</td>
 				<td>{{m.name}}</td>
 				<td>{{m.band}}</td>
-				<td><button ng-click="list_ctrl.edit(m)" class="btn btn-link">Edit</button></td>
+				<td class="text-right">
+					<button ng-click="list_ctrl.edit(m)" class="btn btn-link">Edit</button>
+					<button ng-click="list_ctrl.delete(m)" class="btn btn-link">Delete</button>
+				</td>
 			</tr>
 		</table>
 	</div>
