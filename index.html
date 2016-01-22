@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rob Rothe | AngularJS Sample</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<style>
+body {
+	padding:20px;
+}
+
+form {
+	margin-bottom:20px;
+}
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+<script src="app.js"></script>
+</head>
+<body>
+<div ng-app="app">
+<div class="container">
+	<div ng-controller="FormCtrl as form_ctrl">
+		<form class="form-inline" ng-submit="form_ctrl.save()">
+			<div class="form-group">
+				<input type="text" ng-model="form_ctrl.form_data.name" class="form-control" placeholder="Person">
+			</div>
+			<div class="form-group">
+				<input type="text" ng-model="form_ctrl.form_data.band" class="form-control" placeholder="Band">
+			</div>
+			<button type="submit" class="btn btn-primary" ng-disabled="form_ctrl.disable_save">Save</button>
+			<button type="button" class="btn btn-default" ng-click="form_ctrl.cancel()">Cancel</button>
+		</form>
+	</div>
+
+	<div ng-controller="ListCtrl as list_ctrl">
+		<table class="table">
+			<tr ng-repeat="m in list_ctrl.musicians | orderBy:'name'">
+				<td>{{m.id}}</td>
+				<td>{{m.name}}</td>
+				<td>{{m.band}}</td>
+				<td><button ng-click="list_ctrl.edit(m)" class="btn btn-link">Edit</button></td>
+			</tr>
+		</table>
+	</div>
+</div>
+</div>
+</body>
+</html>
